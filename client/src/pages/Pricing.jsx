@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaArrowLeft, FaCheckCircle } from 'react-icons/fa'
-import { motion } from "motion/react"
+import { motion } from "framer-motion" // Standard framer-motion import
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 import { ServerUrl } from '../App'
@@ -11,7 +11,7 @@ function Pricing() {
   const navigate = useNavigate()
   const [selectedPlan, setSelectedPlan] = useState("free")
   const [loadingPlan, setLoadingPlan] = useState(null)
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
 
   const plans = [
     {
@@ -82,13 +82,13 @@ function Pricing() {
         handler: async function (response) {
           const verifypay = await axios.post(ServerUrl + "/api/payment/verify",
             response, { withCredentials: true })
-            dispatch(setUserData(verifypay.data.user))
+          dispatch(setUserData(verifypay.data.user))
 
           alert("Payment Successful 🎉 Credits Added!")
           navigate("/")
         },
         theme: {
-          color: "#10b981"
+          color: "#14B8A6" // Match Neon Teal theme
         },
 
       }
@@ -106,22 +106,22 @@ function Pricing() {
 
   return (
     // DARK MODE BACKGROUND
-    <div className='min-h-screen bg-[#1C1F26] text-[#E2E8F0] py-16 px-6 font-sans'>
-
-      {/* HEADER SECTION */}
-      <div className='max-w-6xl mx-auto mb-16 flex flex-col sm:flex-row items-center sm:items-start gap-6 relative'>
-
+    <div className='min-h-screen bg-[#1C1F26] text-[#E2E8F0] py-10 sm:py-16 px-4 sm:px-6 font-sans'>
+      
+      {/* HEADER SECTION - FIXED FOR MOBILE & CONSISTENT WITH HISTORY PAGE */}
+      <div className='max-w-6xl mx-auto mb-12 sm:mb-16 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6'>
+        
         <button 
           onClick={() => navigate("/")} 
-          className='absolute left-0 cursor-pointer top-0 sm:static p-3.5 rounded-full bg-[#252833] border border-white/10 shadow-lg hover:border-[#2DD4BF]/50 transition-all z-10'>
+          className='p-3.5 cursor-pointer rounded-full bg-[#252833] border border-white/10 shadow-lg hover:border-[#2DD4BF]/50 transition-all shrink-0'>
           <FaArrowLeft className='text-[#2DD4BF]' />
         </button>
 
-        <div className="text-center w-full">
-          <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+        <div>
+          <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
             Choose Your <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#14B8A6] to-[#06B6D4]'>Plan</span>
           </h1>
-          <p className="text-[#64748B] mt-4 text-lg max-w-xl mx-auto">
+          <p className="text-[#64748B] mt-2 sm:mt-3 text-sm sm:text-lg">
             Flexible pricing to match your interview preparation goals.
           </p>
         </div>
@@ -129,7 +129,7 @@ function Pricing() {
       </div>
 
       {/* PRICING CARDS */}
-      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto'>
+      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto'>
 
         {plans.map((plan) => {
           const isSelected = selectedPlan === plan.id
@@ -138,7 +138,7 @@ function Pricing() {
             <motion.div key={plan.id}
               whileHover={!plan.default && { y: -8 }}
               onClick={() => !plan.default && setSelectedPlan(plan.id)}
-              className={`relative rounded-3xl p-8 transition-all duration-300 border bg-[#252833]
+              className={`relative rounded-3xl p-6 sm:p-8 transition-all duration-300 border bg-[#252833]
                 ${isSelected
                   ? "border-[#2DD4BF] shadow-[0_0_30px_rgba(45,212,191,0.15)] scale-[1.02] md:scale-105 z-10"
                   : "border-white/5 hover:border-[#2DD4BF]/40 shadow-lg"
@@ -149,14 +149,14 @@ function Pricing() {
 
               {/* Best Value Badge */}
               {plan.badge && (
-                <div className="absolute top-0 right-8 -translate-y-1/2 bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white text-xs px-4 py-1.5 rounded-full shadow-lg font-bold tracking-wider uppercase">
+                <div className="absolute top-0 right-6 sm:right-8 -translate-y-1/2 bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white text-[10px] sm:text-xs px-4 py-1.5 rounded-full shadow-lg font-bold tracking-wider uppercase">
                   {plan.badge}
                 </div>
               )}
 
               {/* Default Tag */}
               {plan.default && (
-                <div className="absolute top-6 right-6 bg-[#1C1F26] border border-white/10 text-[#64748B] text-xs px-3 py-1.5 rounded-full font-semibold uppercase tracking-wider">
+                <div className="absolute top-5 sm:top-6 right-5 sm:right-6 bg-[#1C1F26] border border-white/10 text-[#64748B] text-[10px] sm:text-xs px-3 py-1.5 rounded-full font-semibold uppercase tracking-wider">
                   Current Plan
                 </div>
               )}
