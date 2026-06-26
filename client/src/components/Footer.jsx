@@ -3,38 +3,30 @@ import { RiBrainLine } from "react-icons/ri"
 
 function Footer() {
     return (
-        <div style={{ background: '#1C1F26', display: 'flex', justifyContent: 'center', padding: '40px 16px 32px' }}>
-            <div style={{
-                width: '100%',
-                maxWidth: '1100px',
-                background: '#252833',
-                borderRadius: '20px',
-                border: '1px solid rgba(255,255,255,0.08)',
-                padding: '32px 24px',
-                textAlign: 'center',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.3)'
-            }}>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-                    <div style={{
-                        background: 'linear-gradient(135deg, #14B8A6, #06B6D4)',
-                        color: '#fff',
-                        padding: '8px',
-                        borderRadius: '10px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 0 14px rgba(20,184,166,0.35)'
-                    }}>
-                        <RiBrainLine size={16} />
+        <div className="bg-[#1C1F26] flex justify-center pt-10 pb-8 px-4 sm:px-6 font-sans">
+            <div className="w-full max-w-6xl bg-[#252833] rounded-2xl border border-white/5 py-8 px-6 text-center shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
+                
+                {/* Logo & Brand Name */}
+                <div className="flex justify-center items-center gap-2.5 mb-4">
+                    <div className="bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white p-2 rounded-xl flex items-center justify-center shadow-[0_0_14px_rgba(20,184,166,0.35)]">
+                        <RiBrainLine size={18} />
                     </div>
-                    <h2 style={{ fontWeight: 600, fontSize: '1rem', color: '#F1F5F9', letterSpacing: '-0.01em' }}>
+                    <h2 className="font-semibold text-base sm:text-lg text-[#F1F5F9] tracking-tight">
                         InterviewGuru.AI
                     </h2>
                 </div>
-                <p style={{ color: '#64748B', fontSize: '0.875rem', maxWidth: '480px', margin: '0 auto', lineHeight: 1.7 }}>
+                
+                {/* Description */}
+                <p className="text-[#64748B] text-sm max-w-[480px] mx-auto leading-relaxed">
                     AI-powered interview preparation platform designed to improve
                     communication skills, technical depth and professional confidence.
                 </p>
+
+                {/* Copyright Line (Optional but looks professional) */}
+                <div className="mt-8 pt-6 border-t border-white/5 text-[#64748B] text-xs font-medium tracking-wide">
+                    &copy; {new Date().getFullYear()} InterviewGuru.AI. All rights reserved.
+                </div>
+                
             </div>
         </div>
     )
