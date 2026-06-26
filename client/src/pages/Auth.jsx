@@ -1,7 +1,7 @@
 import React from 'react'
 import { RiBrainLine } from "react-icons/ri"
 import { IoSparkles } from "react-icons/io5";
-import { motion } from "motion/react"
+import { motion } from "framer-motion" // Standardized import
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../utils/firebase';
@@ -12,6 +12,7 @@ import { setUserData } from '../redux/userSlice';
 
 function Auth({ isModel = false }) {
     const dispatch = useDispatch()
+
     const handleGoogleAuth = async () => {
         try {
             const response = await signInWithPopup(auth, provider)
@@ -29,87 +30,35 @@ function Auth({ isModel = false }) {
     }
 
     return (
-        <div style={{
-            width: '100%',
-            ...(isModel ? {} : {
-                minHeight: '100vh',
-                background: '#1C1F26',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '80px 24px'
-            })
-        }}>
+        <div className={`w-full font-sans ${!isModel ? "min-h-screen bg-[#1C1F26] flex items-center justify-center py-20 px-4 sm:px-6" : ""}`}>
             <motion.div
                 initial={{ opacity: 0, y: -40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.05 }}
-                style={{
-                    width: '100%',
-                    maxWidth: isModel ? '420px' : '480px',
-                    padding: isModel ? '8px' : '48px',
-                    borderRadius: isModel ? '0' : '28px',
-                    background: isModel ? 'transparent' : '#252833',
-                    border: isModel ? 'none' : '1px solid rgba(255,255,255,0.08)',
-                    boxShadow: isModel ? 'none' : '0 24px 60px rgba(0,0,0,0.4)'
-                }}>
+                transition={{ duration: 0.6 }} // Adjusted duration for smoother feel
+                className={`w-full ${isModel ? "max-w-[420px] p-2 bg-transparent" : "max-w-[480px] p-10 sm:p-12 rounded-3xl bg-[#252833] border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.4)]"}`}
+            >
 
                 {/* Logo */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '24px' }}>
-                    <div style={{
-                        background: 'linear-gradient(135deg, #14B8A6, #06B6D4)',
-                        color: '#fff',
-                        padding: '8px',
-                        borderRadius: '10px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 0 14px rgba(20,184,166,0.35)'
-                    }}>
+                <div className="flex items-center justify-center gap-2.5 mb-6">
+                    <div className="bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white p-2 rounded-xl flex items-center justify-center shadow-[0_0_14px_rgba(20,184,166,0.35)]">
                         <RiBrainLine size={20} />
                     </div>
-                    <h2 style={{ fontWeight: 600, fontSize: '1rem', color: '#F1F5F9', letterSpacing: '-0.01em' }}>
+                    <h2 className="font-semibold text-base sm:text-lg text-[#F1F5F9] tracking-tight">
                         InterviewGuru.AI
                     </h2>
                 </div>
 
                 {/* Heading */}
-                <h1 style={{
-                    fontSize: 'clamp(1.4rem, 3vw, 1.8rem)',
-                    fontWeight: 700,
-                    textAlign: 'center',
-                    color: '#F1F5F9',
-                    lineHeight: 1.35,
-                    marginBottom: '16px',
-                    letterSpacing: '-0.02em'
-                }}>
-                    Continue with{' '}
-                    <span style={{
-                        background: 'rgba(20,184,166,0.12)',
-                        border: '1px solid rgba(20,184,166,0.25)',
-                        color: '#2DD4BF',
-                        padding: '4px 12px',
-                        borderRadius: '999px',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        fontSize: '0.9em'
-                    }}>
-                        <IoSparkles size={14} />
+                <h1 className="text-2xl sm:text-3xl font-bold text-center text-[#F1F5F9] leading-snug mb-4 tracking-tight">
+                    Continue with <br className={isModel ? "hidden" : "block sm:hidden"} />
+                    <span className="inline-flex items-center gap-1.5 bg-[#14B8A6]/10 border border-[#14B8A6]/25 text-[#2DD4BF] px-3 py-1 rounded-full text-base sm:text-lg align-middle translate-y-[-2px] sm:translate-y-[-1px] ml-1">
+                        <IoSparkles size={16} />
                         AI Smart Interview
                     </span>
                 </h1>
 
                 {/* Subtitle */}
-                <p style={{
-                    color: '#64748B',
-                    textAlign: 'center',
-                    fontSize: '0.875rem',
-                    lineHeight: 1.7,
-                    marginBottom: '32px',
-                    maxWidth: '340px',
-                    margin: '0 auto 32px'
-                }}>
+                <p className="text-[#64748B] text-center text-sm sm:text-base leading-relaxed mb-8 max-w-[340px] mx-auto">
                     Sign in to start AI-powered mock interviews,
                     track your progress, and unlock detailed performance insights.
                 </p>
@@ -119,23 +68,9 @@ function Auth({ isModel = false }) {
                     onClick={handleGoogleAuth}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    style={{
-                        width: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '10px',
-                        padding: '13px',
-                        background: 'rgba(255,255,255,0.06)',
-                        border: '1px solid rgba(255,255,255,0.12)',
-                        borderRadius: '999px',
-                        color: '#F1F5F9',
-                        fontSize: '0.95rem',
-                        fontWeight: 600,
-                        cursor: 'pointer',
-                        transition: 'background 0.2s'
-                    }}>
-                    <FcGoogle size={20} />
+                    className="w-full flex items-center justify-center gap-3 py-3.5 sm:py-4 px-6 bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 rounded-full text-[#F1F5F9] text-sm sm:text-base font-semibold cursor-pointer transition-colors shadow-sm"
+                >
+                    <FcGoogle size={22} />
                     Continue with Google
                 </motion.button>
 
