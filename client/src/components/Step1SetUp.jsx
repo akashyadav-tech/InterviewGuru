@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 import axios from 'axios';
 import {
     FaUserTie,
@@ -7,7 +7,6 @@ import {
     FaFileUpload,
     FaMicrophoneAlt,
     FaChartLine,
-   
 } from "react-icons/fa";
 import { ServerUrl } from '../App';
 import { useDispatch, useSelector } from 'react-redux';
@@ -61,143 +60,52 @@ function Step1SetUp({ onStart }) {
         }
     }
 
-    const inputStyle = {
-        width: '100%',
-        padding: '12px 16px 12px 44px',
-        background: '#1C1F26',
-        border: '1px solid rgba(255,255,255,0.08)',
-        borderRadius: '12px',
-        color: '#F1F5F9',
-        fontSize: '0.9rem',
-        outline: 'none',
-        transition: 'border 0.2s',
-    }
-
-    const selectStyle = {
-        width: '100%',
-        padding: '12px 16px',
-        background: '#1C1F26',
-        border: '1px solid rgba(255,255,255,0.08)',
-        borderRadius: '12px',
-        color: '#F1F5F9',
-        fontSize: '0.9rem',
-        outline: 'none',
-        cursor: 'pointer',
-    }
-
     return (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            style={{
-                minHeight: '100vh',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: '#1C1F26',
-                padding: '24px 16px',
-                fontFamily: "'Inter', sans-serif"
-            }}>
-              
-
-            <div style={{
-                width: '100%',
-                maxWidth: '1000px',
-                background: '#252833',
-                borderRadius: '24px',
-                border: '1px solid rgba(255,255,255,0.07)',
-                boxShadow: '0 24px 60px rgba(0,0,0,0.4)',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                overflow: 'hidden'
-            }}>
-
+            className="min-h-screen flex items-center justify-center bg-[#1C1F26] p-4 sm:p-6 md:p-8 pt-20"
+        >
+            <div className="w-full max-w-5xl bg-[#252833] rounded-3xl border border-white/5 shadow-[0_24px_60px_rgba(0,0,0,0.4)] grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+                
                 {/* LEFT PANEL */}
                 <motion.div
-                    initial={{ x: -80, opacity: 0 }}
+                    initial={{ x: -40, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.7 }}
-                    style={{
-                        background: 'linear-gradient(135deg, rgba(20,184,166,0.08), rgba(6,182,212,0.04))',
-                        borderRight: '1px solid rgba(255,255,255,0.06)',
-                        padding: '48px 40px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center'
-                    }}>
-
-                    <div style={{
-                        display: 'inline-flex',
-                        background: 'rgba(20,184,166,0.12)',
-                        border: '1px solid rgba(20,184,166,0.25)',
-                        color: '#2DD4BF',
-                        fontSize: '11px',
-                        fontWeight: 600,
-                        padding: '5px 14px',
-                        borderRadius: '999px',
-                        marginBottom: '20px',
-                        letterSpacing: '0.08em',
-                        textTransform: 'uppercase',
-                        width: 'fit-content'
-                    }}>
+                    className="bg-gradient-to-br from-[#14B8A6]/10 to-[#06B6D4]/5 border-b md:border-b-0 md:border-r border-white/5 p-8 sm:p-10 lg:p-12 flex flex-col justify-center"
+                >
+                    <div className="inline-flex bg-[#14B8A6]/10 border border-[#14B8A6]/25 text-[#2DD4BF] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase w-fit">
                         AI Powered
                     </div>
 
-                    <h2 style={{
-                        fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
-                        fontWeight: 700,
-                        color: '#F1F5F9',
-                        marginBottom: '16px',
-                        lineHeight: 1.25,
-                        letterSpacing: '-0.02em'
-                    }}>
+                    <h2 className="text-3xl sm:text-4xl lg:text-[2.2rem] font-bold text-[#F1F5F9] mb-4 leading-tight tracking-tight">
                         Start Your AI Interview
                     </h2>
 
-                    <p style={{ color: '#64748B', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: '36px' }}>
-                        Practice real interview scenarios powered by AI.
-                        Improve communication, technical skills, and confidence.
+                    <p className="text-[#64748B] text-sm sm:text-base leading-relaxed mb-10 max-w-sm">
+                        Practice real interview scenarios powered by AI. Improve communication, technical skills, and confidence.
                     </p>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <div className="flex flex-col gap-4">
                         {[
-                            { icon: <FaUserTie />, text: "Choose Role & Experience", color: '#2DD4BF', bg: 'rgba(20,184,166,0.1)', border: 'rgba(20,184,166,0.2)' },
-                            { icon: <FaMicrophoneAlt />, text: "Smart Voice Interview", color: '#A5B4FC', bg: 'rgba(129,140,248,0.1)', border: 'rgba(129,140,248,0.2)' },
-                            { icon: <FaChartLine />, text: "Performance Analytics", color: '#FCD34D', bg: 'rgba(251,191,36,0.1)', border: 'rgba(251,191,36,0.2)' },
+                            { icon: <FaUserTie />, text: "Choose Role & Experience", color: "text-[#2DD4BF]", bg: "bg-[#14B8A6]/10", border: "border-[#14B8A6]/20" },
+                            { icon: <FaMicrophoneAlt />, text: "Smart Voice Interview", color: "text-indigo-300", bg: "bg-indigo-500/10", border: "border-indigo-500/20" },
+                            { icon: <FaChartLine />, text: "Performance Analytics", color: "text-amber-300", bg: "bg-amber-500/10", border: "border-amber-500/20" },
                         ].map((item, i) => (
                             <motion.div
                                 key={i}
-                                initial={{ y: 30, opacity: 0 }}
+                                initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.3 + i * 0.15 }}
                                 whileHover={{ scale: 1.02, x: 4 }}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '14px',
-                                    background: '#1C1F26',
-                                    border: '1px solid rgba(255,255,255,0.06)',
-                                    padding: '14px 18px',
-                                    borderRadius: '14px',
-                                    cursor: 'pointer'
-                                }}>
-                                <div style={{
-                                    background: item.bg,
-                                    border: `1px solid ${item.border}`,
-                                    color: item.color,
-                                    width: '36px',
-                                    height: '36px',
-                                    borderRadius: '10px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    flexShrink: 0,
-                                    fontSize: '1rem'
-                                }}>
+                                className="flex items-center gap-4 bg-[#1C1F26] border border-white/5 p-3.5 sm:p-4 rounded-2xl cursor-pointer"
+                            >
+                                <div className={`${item.bg} border ${item.border} ${item.color} w-10 h-10 rounded-xl flex items-center justify-center shrink-0 text-base`}>
                                     {item.icon}
                                 </div>
-                                <span style={{ color: '#CBD5E1', fontSize: '0.9rem', fontWeight: 500 }}>{item.text}</span>
+                                <span className="text-[#CBD5E1] text-sm font-medium">{item.text}</span>
                             </motion.div>
                         ))}
                     </div>
@@ -205,42 +113,35 @@ function Step1SetUp({ onStart }) {
 
                 {/* RIGHT PANEL */}
                 <motion.div
-                    initial={{ x: 80, opacity: 0 }}
+                    initial={{ x: 40, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.7 }}
-                    style={{ padding: '48px 40px' }}>
-
-                    <h2 style={{
-                        fontSize: '1.6rem',
-                        fontWeight: 700,
-                        color: '#F1F5F9',
-                        marginBottom: '32px',
-                        letterSpacing: '-0.02em'
-                    }}>
+                    className="p-8 sm:p-10 lg:p-12"
+                >
+                    <h2 className="text-2xl sm:text-[1.6rem] font-bold text-[#F1F5F9] mb-8 tracking-tight">
                         Interview Setup
                     </h2>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-
+                    <div className="flex flex-col gap-5">
                         {/* Role Input */}
-                        <div style={{ position: 'relative' }}>
-                            <FaUserTie style={{ position: 'absolute', top: '14px', left: '14px', color: '#475569', fontSize: '1rem' }} />
+                        <div className="relative">
+                            <FaUserTie className="absolute top-4 left-4 text-[#475569] text-base" />
                             <input
                                 type='text'
                                 placeholder='Enter role (e.g. Frontend Developer)'
-                                style={inputStyle}
+                                className="w-full pl-11 pr-4 py-3.5 bg-[#1C1F26] border border-white/5 rounded-xl text-[#F1F5F9] text-sm outline-none focus:border-[#2DD4BF]/50 transition-colors"
                                 onChange={(e) => setRole(e.target.value)}
                                 value={role}
                             />
                         </div>
 
                         {/* Experience Input */}
-                        <div style={{ position: 'relative' }}>
-                            <FaBriefcase style={{ position: 'absolute', top: '14px', left: '14px', color: '#475569', fontSize: '1rem' }} />
+                        <div className="relative">
+                            <FaBriefcase className="absolute top-4 left-4 text-[#475569] text-base" />
                             <input
                                 type='text'
                                 placeholder='Experience (e.g. 2 years)'
-                                style={inputStyle}
+                                className="w-full pl-11 pr-4 py-3.5 bg-[#1C1F26] border border-white/5 rounded-xl text-[#F1F5F9] text-sm outline-none focus:border-[#2DD4BF]/50 transition-colors"
                                 onChange={(e) => setExperience(e.target.value)}
                                 value={experience}
                             />
@@ -250,7 +151,8 @@ function Step1SetUp({ onStart }) {
                         <select
                             onChange={(e) => setMode(e.target.value)}
                             value={mode}
-                            style={selectStyle}>
+                            className="w-full px-4 py-3.5 bg-[#1C1F26] border border-white/5 rounded-xl text-[#F1F5F9] text-sm outline-none focus:border-[#2DD4BF]/50 transition-colors cursor-pointer appearance-none"
+                        >
                             <option value="Technical">Technical Interview</option>
                             <option value="HR">HR Interview</option>
                         </select>
@@ -260,24 +162,17 @@ function Step1SetUp({ onStart }) {
                             <motion.div
                                 whileHover={{ scale: 1.01 }}
                                 onClick={() => document.getElementById("resumeUpload").click()}
-                                style={{
-                                    border: '2px dashed rgba(20,184,166,0.3)',
-                                    borderRadius: '14px',
-                                    padding: '28px',
-                                    textAlign: 'center',
-                                    cursor: 'pointer',
-                                    background: 'rgba(20,184,166,0.04)',
-                                    transition: 'border 0.2s, background 0.2s'
-                                }}>
-                                <FaFileUpload style={{ fontSize: '2rem', color: '#2DD4BF', margin: '0 auto 12px', display: 'block' }} />
+                                className="border-2 border-dashed border-[#14B8A6]/30 bg-[#14B8A6]/5 rounded-2xl p-6 sm:p-8 text-center cursor-pointer hover:border-[#14B8A6]/50 transition-colors"
+                            >
+                                <FaFileUpload className="text-3xl text-[#2DD4BF] mx-auto mb-3" />
                                 <input
                                     type="file"
                                     accept="application/pdf"
                                     id="resumeUpload"
-                                    style={{ display: 'none' }}
+                                    className="hidden"
                                     onChange={(e) => setResumeFile(e.target.files[0])}
                                 />
-                                <p style={{ color: '#94A3B8', fontSize: '0.875rem', fontWeight: 500 }}>
+                                <p className="text-[#94A3B8] text-sm font-medium px-2">
                                     {resumeFile ? resumeFile.name : "Click to upload resume (Optional)"}
                                 </p>
 
@@ -285,18 +180,8 @@ function Step1SetUp({ onStart }) {
                                     <motion.button
                                         whileHover={{ scale: 1.03 }}
                                         onClick={(e) => { e.stopPropagation(); handleUploadResume(); }}
-                                        style={{
-                                            marginTop: '14px',
-                                            background: 'linear-gradient(135deg, #14B8A6, #06B6D4)',
-                                            color: '#fff',
-                                            border: 'none',
-                                            padding: '9px 22px',
-                                            borderRadius: '999px',
-                                            fontSize: '0.85rem',
-                                            fontWeight: 600,
-                                            cursor: 'pointer',
-                                            boxShadow: '0 0 16px rgba(20,184,166,0.3)'
-                                        }}>
+                                        className="mt-4 bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white border-none py-2 px-6 rounded-full text-sm font-semibold shadow-[0_0_15px_rgba(20,184,166,0.3)] cursor-pointer"
+                                    >
                                         {analyzing ? "Analyzing..." : "Analyze Resume"}
                                     </motion.button>
                                 )}
@@ -308,23 +193,16 @@ function Step1SetUp({ onStart }) {
                             <motion.div
                                 initial={{ opacity: 0, y: 16 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                style={{
-                                    background: '#1C1F26',
-                                    border: '1px solid rgba(20,184,166,0.2)',
-                                    borderRadius: '14px',
-                                    padding: '20px',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: '14px'
-                                }}>
-                                <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#2DD4BF' }}>
+                                className="bg-[#1C1F26] border border-[#14B8A6]/20 rounded-xl p-5 flex flex-col gap-4"
+                            >
+                                <h3 className="text-sm font-semibold text-[#2DD4BF]">
                                     Resume Analysis Result
                                 </h3>
 
                                 {projects.length > 0 && (
                                     <div>
-                                        <p style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: 600, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Projects</p>
-                                        <ul style={{ paddingLeft: '16px', color: '#94A3B8', fontSize: '0.875rem', lineHeight: 1.7 }}>
+                                        <p className="text-[11px] text-[#64748B] font-bold mb-2 uppercase tracking-widest">Projects</p>
+                                        <ul className="list-disc pl-5 text-[#94A3B8] text-sm leading-relaxed">
                                             {projects.map((p, i) => <li key={i}>{p}</li>)}
                                         </ul>
                                     </div>
@@ -332,18 +210,12 @@ function Step1SetUp({ onStart }) {
 
                                 {skills.length > 0 && (
                                     <div>
-                                        <p style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: 600, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Skills</p>
-                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                        <p className="text-[11px] text-[#64748B] font-bold mb-2 uppercase tracking-widest">Skills</p>
+                                        <div className="flex flex-wrap gap-2">
                                             {skills.map((s, i) => (
-                                                <span key={i} style={{
-                                                    background: 'rgba(20,184,166,0.1)',
-                                                    border: '1px solid rgba(20,184,166,0.22)',
-                                                    color: '#2DD4BF',
-                                                    padding: '4px 12px',
-                                                    borderRadius: '999px',
-                                                    fontSize: '0.8rem',
-                                                    fontWeight: 500
-                                                }}>{s}</span>
+                                                <span key={i} className="bg-[#14B8A6]/10 border border-[#14B8A6]/20 text-[#2DD4BF] px-3 py-1 rounded-full text-xs font-medium">
+                                                    {s}
+                                                </span>
                                             ))}
                                         </div>
                                     </div>
@@ -355,24 +227,14 @@ function Step1SetUp({ onStart }) {
                         <motion.button
                             onClick={handleStart}
                             disabled={!role || !experience || loading}
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.96 }}
-                            style={{
-                                width: '100%',
-                                padding: '14px',
-                                background: (!role || !experience || loading)
-                                    ? 'rgba(255,255,255,0.06)'
-                                    : 'linear-gradient(135deg, #14B8A6, #06B6D4)',
-                                color: (!role || !experience || loading) ? '#475569' : '#fff',
-                                border: 'none',
-                                borderRadius: '999px',
-                                fontSize: '1rem',
-                                fontWeight: 600,
-                                cursor: (!role || !experience || loading) ? 'not-allowed' : 'pointer',
-                                boxShadow: (!role || !experience || loading) ? 'none' : '0 0 24px rgba(20,184,166,0.3)',
-                                transition: 'all 0.2s',
-                                letterSpacing: '0.01em'
-                            }}>
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className={`w-full py-3.5 mt-2 rounded-full text-base font-semibold tracking-wide transition-all ${
+                                (!role || !experience || loading)
+                                    ? 'bg-white/5 text-[#475569] cursor-not-allowed'
+                                    : 'bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white shadow-[0_0_24px_rgba(20,184,166,0.3)] cursor-pointer hover:opacity-90'
+                            }`}
+                        >
                             {loading ? "Starting..." : "Start Interview →"}
                         </motion.button>
                     </div>
