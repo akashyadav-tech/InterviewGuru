@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import maleVideo from "../assets/Videos/male-ai.mp4"
-import femaleVideo from "../assets/Videos/female-ai.mp4"
+import maleVideo from "../assets/videos/male-ai.mp4"
+import femaleVideo from "../assets/videos/female-ai.mp4"
 import Timer from './Timer'
 import axios from 'axios';
 import { motion } from "framer-motion"
@@ -168,14 +168,14 @@ function Step2Interview({ interviewData, onFinish }) {
     }, []);
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[#1C1F26] p-4 sm:p-6 md:p-8 pt-20 font-sans">
-            <div className="w-full max-w-6xl min-h-[80vh] bg-[#252833] rounded-3xl border border-white/5 shadow-[0_24px_60px_rgba(0,0,0,0.4)] flex flex-col md:flex-row overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center bg-[#0B0F19] p-4 sm:p-6 md:p-8 pt-20 font-sans">
+            <div className="w-full max-w-6xl min-h-[80vh] bg-[#131C2F] rounded-3xl border border-[#1E293B] shadow-[0_24px_60px_rgba(0,0,0,0.4)] flex flex-col md:flex-row overflow-hidden">
 
                 {/* LEFT — Video Panel */}
-                <div className="w-full md:w-[340px] shrink-0 border-b md:border-b-0 md:border-r border-white/5 p-5 sm:p-6 flex flex-col gap-4 bg-[#14B8A6]/[0.02]">
+                <div className="w-full md:w-[340px] shrink-0 border-b md:border-b-0 md:border-r border-[#334155] p-5 sm:p-6 flex flex-col gap-4 bg-[#2563EB]/[0.02]">
                     
                     {/* Video Box */}
-                    <div className="rounded-2xl overflow-hidden border border-white/5 bg-black">
+                    <div className="rounded-2xl overflow-hidden border border-[#334155] bg-black">
                         <video src={videoSource} key={videoSource} ref={videoRef}
                             muted playsInline preload="auto"
                             className="w-full h-auto max-h-[300px] md:max-h-none object-cover block" />
@@ -183,38 +183,37 @@ function Step2Interview({ interviewData, onFinish }) {
 
                     {/* Subtitle */}
                     {subtitle && (
-                        <div className="bg-[#1C1F26] border border-white/5 rounded-xl p-3.5">
-                            <p className="text-[#CBD5E1] text-xs sm:text-sm text-center leading-relaxed font-medium">{subtitle}</p>
+                        <div className="bg-[#0B0F19] border border-[#334155] rounded-xl p-3.5">
+                            <p className="text-[#94A3B8] text-xs sm:text-sm text-center leading-relaxed font-medium">{subtitle}</p>
                         </div>
                     )}
 
                     {/* Status + Timer */}
-                    <div className="bg-[#1C1F26] border border-white/5 rounded-2xl p-5 flex flex-col gap-4 mt-auto">
+                    <div className="bg-[#0B0F19] border border-[#334155] rounded-2xl p-5 flex flex-col gap-4 mt-auto">
                         <div className="flex justify-between items-center">
                             <span className="text-xs font-semibold text-[#64748B] uppercase tracking-wide">Status</span>
                             {isAIPlaying && (
-                                <span className="text-[10px] sm:text-xs font-bold text-[#2DD4BF] bg-[#14B8A6]/10 border border-[#14B8A6]/25 px-2.5 py-1 rounded-full uppercase tracking-wider animate-pulse">
+                                <span className="text-[10px] sm:text-xs font-bold text-[#60A5FA] bg-[#2563EB]/10 border border-[#2563EB]/30 px-2.5 py-1 rounded-full uppercase tracking-wider animate-pulse">
                                     AI Speaking
                                 </span>
                             )}
                         </div>
 
-                        <div className="h-px bg-white/5 w-full" />
+                        <div className="h-px bg-[#334155] w-full" />
 
                         <div className="flex justify-center">
-                            {/* Assuming Timer component works fine, adjust its internal classes if needed */}
                             <Timer timeLeft={timeLeft} totalTime={currentQuestion?.timeLimit} />
                         </div>
 
-                        <div className="h-px bg-white/5 w-full" />
+                        <div className="h-px bg-[#334155] w-full" />
 
                         <div className="grid grid-cols-2 gap-3 text-center">
                             <div className="flex flex-col gap-1">
-                                <span className="text-2xl font-bold text-[#2DD4BF]">{currentIndex + 1}</span>
+                                <span className="text-2xl font-bold text-[#60A5FA]">{currentIndex + 1}</span>
                                 <span className="text-[10px] text-[#64748B] uppercase tracking-wider font-semibold">Question</span>
                             </div>
                             <div className="flex flex-col gap-1">
-                                <span className="text-2xl font-bold text-[#2DD4BF]">{questions.length}</span>
+                                <span className="text-2xl font-bold text-[#60A5FA]">{questions.length}</span>
                                 <span className="text-[10px] text-[#64748B] uppercase tracking-wider font-semibold">Total</span>
                             </div>
                         </div>
@@ -225,18 +224,18 @@ function Step2Interview({ interviewData, onFinish }) {
                 <div className="flex-1 p-5 sm:p-8 flex flex-col min-w-[300px]">
 
                     <div className="mb-6">
-                        <span className="text-[10px] font-bold text-[#2DD4BF] bg-[#14B8A6]/10 border border-[#14B8A6]/20 px-3 py-1.5 rounded-full tracking-widest uppercase">
+                        <span className="text-[10px] font-bold text-[#60A5FA] bg-[#2563EB]/10 border border-[#2563EB]/30 px-3 py-1.5 rounded-full tracking-widest uppercase">
                             AI Smart Interview
                         </span>
                     </div>
 
                     {/* Question Box */}
                     {!isIntroPhase && (
-                        <div className="bg-[#1C1F26] border border-white/5 rounded-2xl p-5 sm:p-6 mb-5">
+                        <div className="bg-[#0B0F19] border border-[#334155] rounded-2xl p-5 sm:p-6 mb-5">
                             <p className="text-[11px] text-[#64748B] mb-2 font-bold uppercase tracking-widest">
                                 Question {currentIndex + 1} of {questions.length}
                             </p>
-                            <p className="text-base sm:text-lg font-semibold text-[#F1F5F9] leading-relaxed">
+                            <p className="text-base sm:text-lg font-semibold text-[#F8FAFC] leading-relaxed">
                                 {currentQuestion?.question}
                             </p>
                         </div>
@@ -247,7 +246,7 @@ function Step2Interview({ interviewData, onFinish }) {
                         placeholder="Type your answer here or use the microphone..."
                         onChange={(e) => setAnswer(e.target.value)}
                         value={answer}
-                        className="flex-1 bg-[#1C1F26] border border-white/5 rounded-2xl p-5 text-[#E2E8F0] text-sm sm:text-base leading-relaxed resize-none outline-none focus:border-[#2DD4BF]/50 min-h-[160px] md:min-h-[200px] transition-colors font-sans w-full"
+                        className="flex-1 bg-[#0B0F19] border border-[#334155] rounded-2xl p-5 text-[#E2E8F0] text-sm sm:text-base leading-relaxed resize-none outline-none focus:border-[#60A5FA]/50 min-h-[160px] md:min-h-[200px] transition-colors font-sans w-full"
                     />
 
                     {/* Action Buttons */}
@@ -258,7 +257,7 @@ function Step2Interview({ interviewData, onFinish }) {
                                 whileTap={{ scale: 0.9 }}
                                 className={`w-12 h-12 sm:w-14 sm:h-14 shrink-0 flex items-center justify-center rounded-full cursor-pointer transition-all ${
                                     isMicOn 
-                                        ? 'bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white shadow-[0_0_16px_rgba(20,184,166,0.3)]' 
+                                        ? 'bg-[#2563EB] text-white shadow-[0_0_16px_rgba(37,99,235,0.3)]' 
                                         : 'bg-rose-500/15 border border-rose-500/30 text-rose-400'
                                 }`}
                             >
@@ -271,8 +270,8 @@ function Step2Interview({ interviewData, onFinish }) {
                                 whileTap={{ scale: 0.96 }}
                                 className={`flex-1 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all ${
                                     isSubmitting 
-                                        ? 'bg-white/5 text-[#475569] cursor-not-allowed' 
-                                        : 'bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white cursor-pointer shadow-[0_0_20px_rgba(20,184,166,0.25)] hover:opacity-90'
+                                        ? 'bg-[#1E293B] text-[#475569] cursor-not-allowed' 
+                                        : 'bg-[#2563EB] hover:bg-[#1D4ED8] text-white cursor-pointer shadow-[0_0_20px_rgba(37,99,235,0.25)] hover:opacity-90'
                                 }`}
                             >
                                 {isSubmitting ? "Submitting..." : "Submit Answer"}
@@ -282,14 +281,14 @@ function Step2Interview({ interviewData, onFinish }) {
                         <motion.div
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="mt-5 bg-[#14B8A6]/10 border border-[#14B8A6]/20 rounded-2xl p-5 sm:p-6"
+                            className="mt-5 bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-2xl p-5 sm:p-6"
                         >
-                            <p className="text-[#2DD4BF] text-sm sm:text-base leading-relaxed mb-5 font-medium">
+                            <p className="text-[#60A5FA] text-sm sm:text-base leading-relaxed mb-5 font-medium">
                                 {feedback}
                             </p>
                             <button
                                 onClick={handleNext}
-                                className="w-full bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white border-none py-3.5 rounded-full text-sm sm:text-base font-semibold cursor-pointer flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(20,184,166,0.25)] hover:opacity-90 transition-opacity"
+                                className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white border-none py-3.5 rounded-full text-sm sm:text-base font-semibold cursor-pointer flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.25)] transition-colors"
                             >
                                 {currentIndex + 1 >= questions.length ? "Finish Interview" : "Next Question"}
                                 <BsArrowRight size={18} />
