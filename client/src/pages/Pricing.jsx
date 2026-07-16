@@ -88,7 +88,7 @@ function Pricing() {
           navigate("/")
         },
         theme: {
-          color: "#14B8A6" // Match Neon Teal theme
+          color: "#2563EB" // Match page Blue theme
         },
 
       }
@@ -106,22 +106,22 @@ function Pricing() {
 
   return (
     // DARK MODE BACKGROUND
-    <div className='min-h-screen bg-[#1C1F26] text-[#E2E8F0] py-10 sm:py-16 px-4 sm:px-6 font-sans'>
+    <div className='min-h-screen bg-[#0B0F19] text-[#E2E8F0] py-10 sm:py-16 px-4 sm:px-6 font-sans'>
       
       {/* HEADER SECTION - FIXED FOR MOBILE & CONSISTENT WITH HISTORY PAGE */}
       <div className='max-w-6xl mx-auto mb-12 sm:mb-16 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6'>
         
         <button 
           onClick={() => navigate("/")} 
-          className='p-3.5 cursor-pointer rounded-full bg-[#252833] border border-white/10 shadow-lg hover:border-[#2DD4BF]/50 transition-all shrink-0'>
-          <FaArrowLeft className='text-[#2DD4BF]' />
+          className='p-3.5 cursor-pointer rounded-full bg-[#131C2F] border border-[#1E293B] shadow-lg hover:border-[#60A5FA]/50 transition-all shrink-0'>
+          <FaArrowLeft className='text-[#60A5FA]' />
         </button>
 
         <div>
           <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-            Choose Your <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#14B8A6] to-[#06B6D4]'>Plan</span>
+            Choose Your <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#60A5FA]'>Plan</span>
           </h1>
-          <p className="text-[#64748B] mt-2 sm:mt-3 text-sm sm:text-lg">
+          <p className="text-[#94A3B8] mt-2 sm:mt-3 text-sm sm:text-lg">
             Flexible pricing to match your interview preparation goals.
           </p>
         </div>
@@ -138,10 +138,10 @@ function Pricing() {
             <motion.div key={plan.id}
               whileHover={!plan.default && { y: -8 }}
               onClick={() => !plan.default && setSelectedPlan(plan.id)}
-              className={`relative rounded-3xl p-6 sm:p-8 transition-all duration-300 border bg-[#252833]
+              className={`relative rounded-3xl p-6 sm:p-8 transition-all duration-300 border bg-[#131C2F]
                 ${isSelected
-                  ? "border-[#2DD4BF] shadow-[0_0_30px_rgba(45,212,191,0.15)] scale-[1.02] md:scale-105 z-10"
-                  : "border-white/5 hover:border-[#2DD4BF]/40 shadow-lg"
+                  ? "border-[#60A5FA] shadow-[0_0_30px_rgba(96,165,250,0.15)] scale-[1.02] md:scale-105 z-10"
+                  : "border-[#1E293B] hover:border-[#60A5FA]/40 shadow-lg"
                 }
                 ${plan.default ? "cursor-default opacity-90" : "cursor-pointer"}
               `}
@@ -149,14 +149,14 @@ function Pricing() {
 
               {/* Best Value Badge */}
               {plan.badge && (
-                <div className="absolute top-0 right-6 sm:right-8 -translate-y-1/2 bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white text-[10px] sm:text-xs px-4 py-1.5 rounded-full shadow-lg font-bold tracking-wider uppercase">
+                <div className="absolute top-0 right-6 sm:right-8 -translate-y-1/2 bg-gradient-to-r from-[#2563EB] to-[#60A5FA] text-white text-[10px] sm:text-xs px-4 py-1.5 rounded-full shadow-lg font-bold tracking-wider uppercase">
                   {plan.badge}
                 </div>
               )}
 
               {/* Default Tag */}
               {plan.default && (
-                <div className="absolute top-5 sm:top-6 right-5 sm:right-6 bg-[#1C1F26] border border-white/10 text-[#64748B] text-[10px] sm:text-xs px-3 py-1.5 rounded-full font-semibold uppercase tracking-wider">
+                <div className="absolute top-5 sm:top-6 right-5 sm:right-6 bg-[#0B0F19] border border-[#1E293B] text-[#94A3B8] text-[10px] sm:text-xs px-3 py-1.5 rounded-full font-semibold uppercase tracking-wider">
                   Current Plan
                 </div>
               )}
@@ -168,15 +168,15 @@ function Pricing() {
 
               {/* Price */}
               <div className="mt-4 mb-6">
-                <span className="text-4xl font-extrabold text-[#2DD4BF] drop-shadow-[0_0_10px_rgba(45,212,191,0.2)]">
+                <span className="text-4xl font-extrabold text-[#60A5FA] drop-shadow-[0_0_10px_rgba(96,165,250,0.2)]">
                   {plan.price}
                 </span>
-                <p className="text-[#64748B] mt-1 text-sm font-medium tracking-wide">
+                <p className="text-[#94A3B8] mt-1 text-sm font-medium tracking-wide">
                   {plan.credits} Credits
                 </p>
               </div>
 
-              <div className="h-px w-full bg-white/5 my-6"></div>
+              <div className="h-px w-full bg-[#1E293B] my-6"></div>
 
               {/* Description */}
               <p className="text-[#CBD5E1] text-sm leading-relaxed min-h-[40px]">
@@ -187,7 +187,7 @@ function Pricing() {
               <div className="mt-8 space-y-4 text-left">
                 {plan.features.map((feature, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <FaCheckCircle className="text-[#2DD4BF] text-lg mt-0.5 shrink-0" />
+                    <FaCheckCircle className="text-[#60A5FA] text-lg mt-0.5 shrink-0" />
                     <span className="text-[#E2E8F0] text-sm font-medium">
                       {feature}
                     </span>
@@ -210,8 +210,8 @@ function Pricing() {
                   }}
                   className={`w-full mt-10 py-3.5 cursor-pointer rounded-xl font-bold transition-all duration-300 ${
                     isSelected
-                      ? "bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white shadow-[0_0_20px_rgba(20,184,166,0.25)] hover:opacity-90"
-                      : "bg-[#1C1F26] border border-white/10 text-white hover:border-[#2DD4BF]/50"
+                      ? "bg-gradient-to-r from-[#2563EB] to-[#60A5FA] text-white shadow-[0_0_20px_rgba(37,99,235,0.25)] hover:opacity-90"
+                      : "bg-[#0B0F19] border border-[#1E293B] text-white hover:border-[#60A5FA]/50"
                   }`}>
                   {loadingPlan === plan.id
                     ? "Processing..."
