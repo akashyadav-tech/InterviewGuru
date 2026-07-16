@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaArrowLeft } from 'react-icons/fa';
-import { motion } from "framer-motion" // Changed motion/react to framer-motion standard
+import { motion } from "framer-motion"
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
@@ -11,8 +11,8 @@ import autoTable from "jspdf-autotable"
 function Step3Report({ report }) {
   if (!report) {
     return (
-      <div className="min-h-screen bg-[#1C1F26] flex items-center justify-center">
-        <p className="text-[#2DD4BF] animate-pulse text-lg tracking-widest uppercase font-semibold">Loading Report...</p>
+      <div className="min-h-screen bg-[#0B0F19] flex items-center justify-center">
+        <p className="text-[#60A5FA] animate-pulse text-lg tracking-widest uppercase font-semibold">Loading Report...</p>
       </div>
     );
   }
@@ -67,7 +67,7 @@ function Step3Report({ report }) {
     // ================== TITLE ==================
     doc.setFont("helvetica", "bold");
     doc.setFontSize(20);
-    doc.setTextColor(34, 197, 94);
+    doc.setTextColor(37, 99, 235); // Blue tone for PDF title
     doc.text("AI Interview Performance Report", pageWidth / 2, currentY, {
         align: "center",
     });
@@ -75,13 +75,13 @@ function Step3Report({ report }) {
     currentY += 5;
 
     // underline
-    doc.setDrawColor(34, 197, 94);
+    doc.setDrawColor(37, 99, 235);
     doc.line(margin, currentY + 2, pageWidth - margin, currentY + 2);
 
     currentY += 15;
 
     // ================== FINAL SCORE BOX ==================
-    doc.setFillColor(240, 253, 244);
+    doc.setFillColor(239, 246, 255); // Light blue tint
     doc.roundedRect(margin, currentY, contentWidth, 20, 4, 4, "F");
 
     doc.setFontSize(14);
@@ -149,7 +149,7 @@ function Step3Report({ report }) {
             valign: "top",
         },
         headStyles: {
-            fillColor: [34, 197, 94],
+            fillColor: [37, 99, 235], // Primary blue
             textColor: 255,
             halign: "center",
         },
@@ -168,7 +168,7 @@ function Step3Report({ report }) {
   };
 
   return (
-    <div className='min-h-screen bg-[#1C1F26] text-[#E2E8F0] font-sans px-4 sm:px-6 lg:px-10 py-10'>
+    <div className='min-h-screen bg-[#0B0F19] text-[#F8FAFC] font-sans px-4 sm:px-6 lg:px-10 py-10'>
       <div className='max-w-7xl mx-auto'>
         
         {/* HEADER SECTION */}
@@ -178,8 +178,8 @@ function Step3Report({ report }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/history")}
-              className='p-3.5 rounded-full cursor-pointer bg-[#252833] border border-white/10 shadow-lg hover:border-[#2DD4BF]/50 transition-all'>
-              <FaArrowLeft className='text-[#2DD4BF]' />
+              className='p-3.5 rounded-full cursor-pointer bg-[#131C2F] border border-[#334155] shadow-lg hover:border-[#60A5FA]/50 transition-all'>
+              <FaArrowLeft className='text-[#60A5FA]' />
             </motion.button>
 
             <div>
@@ -187,10 +187,10 @@ function Step3Report({ report }) {
                 Interview Analytics Dashboard
               </h1>
               <div className='flex items-center gap-3 mt-2'>
-                <span className='text-xs font-semibold text-[#2DD4BF] bg-[#14B8A6]/10 border border-[#14B8A6]/20 px-3 py-1 rounded-full uppercase tracking-wider'>
+                <span className='text-xs font-semibold text-[#60A5FA] bg-[#2563EB]/10 border border-[#2563EB]/30 px-3 py-1 rounded-full uppercase tracking-wider'>
                   AI Evaluation Complete
                 </span>
-                <p className='text-[#64748B] text-sm'>
+                <p className='text-[#94A3B8] text-sm'>
                   Detailed performance insights
                 </p>
               </div>
@@ -200,7 +200,7 @@ function Step3Report({ report }) {
           <motion.button 
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className='bg-gradient-to-r cursor-pointer from-[#14B8A6] to-[#06B6D4] text-white px-6 py-3.5 rounded-full shadow-[0_0_20px_rgba(20,184,166,0.25)] transition-all duration-300 font-semibold text-sm sm:text-base text-nowrap border-none flex items-center justify-center gap-2'
+            className='bg-[#2563EB] hover:bg-[#1D4ED8] cursor-pointer text-white px-6 py-3.5 rounded-full shadow-[0_0_20px_rgba(37,99,235,0.25)] transition-all duration-300 font-semibold text-sm sm:text-base text-nowrap border-none flex items-center justify-center gap-2'
             onClick={downloadPDF}>
             Download PDF Report
           </motion.button>
@@ -216,31 +216,31 @@ function Step3Report({ report }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className='bg-[#252833] border border-white/5 rounded-3xl shadow-2xl p-6 sm:p-8 text-center relative overflow-hidden'>
+              className='bg-[#131C2F] border border-[#1E293B] rounded-3xl shadow-2xl p-6 sm:p-8 text-center relative overflow-hidden'>
               
               <h3 className='text-[#64748B] font-semibold tracking-widest uppercase mb-6 text-xs sm:text-sm'>
                 Overall Performance
               </h3>
               
-              <div className='relative w-32 h-32 sm:w-40 sm:h-40 mx-auto drop-shadow-[0_0_15px_rgba(45,212,191,0.2)]'>
+              <div className='relative w-32 h-32 sm:w-40 sm:h-40 mx-auto drop-shadow-[0_0_15px_rgba(96,165,250,0.2)]'>
                 <CircularProgressbar
                   value={percentage}
                   text={`${score}/10`}
                   styles={buildStyles({
                     textSize: "22px",
-                    pathColor: "#2DD4BF",
+                    pathColor: "#60A5FA",
                     textColor: "#F8FAFC",
-                    trailColor: "rgba(255,255,255,0.05)",
+                    trailColor: "rgba(51,65,85,0.5)",
                     pathTransitionDuration: 1.5,
                   })}
                 />
               </div>
 
-              <div className='mt-8 bg-[#1C1F26] border border-white/5 rounded-2xl p-4'>
-                <p className='font-bold text-[#F1F5F9] text-base sm:text-lg'>
+              <div className='mt-8 bg-[#0B0F19] border border-[#334155] rounded-2xl p-4'>
+                <p className='font-bold text-[#F8FAFC] text-base sm:text-lg'>
                   {performanceText}
                 </p>
-                <p className='text-[#2DD4BF] text-xs sm:text-sm mt-1.5 font-medium'>
+                <p className='text-[#60A5FA] text-xs sm:text-sm mt-1.5 font-medium'>
                   {shortTagline}
                 </p>
               </div>
@@ -251,7 +251,7 @@ function Step3Report({ report }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className='bg-[#252833] border border-white/5 rounded-3xl shadow-2xl p-6 sm:p-8'>
+              className='bg-[#131C2F] border border-[#1E293B] rounded-3xl shadow-2xl p-6 sm:p-8'>
               
               <h3 className='text-base sm:text-lg font-semibold text-white mb-6 flex items-center gap-2'>
                 Skill Evaluation
@@ -261,16 +261,16 @@ function Step3Report({ report }) {
                 {skills.map((s, i) => (
                   <div key={i}>
                     <div className='flex justify-between mb-2 text-sm sm:text-base'>
-                      <span className='text-[#CBD5E1]'>{s.label}</span>
-                      <span className='font-bold text-[#2DD4BF]'>{s.value}<span className='text-[#64748B] text-xs ml-1'>/10</span></span>
+                      <span className='text-[#94A3B8]'>{s.label}</span>
+                      <span className='font-bold text-[#60A5FA]'>{s.value}<span className='text-[#64748B] text-xs ml-1'>/10</span></span>
                     </div>
 
-                    <div className='bg-[#1C1F26] border border-white/5 h-3 sm:h-3.5 rounded-full overflow-hidden relative'>
+                    <div className='bg-[#0B0F19] border border-[#334155] h-3 sm:h-3.5 rounded-full overflow-hidden relative'>
                       <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: `${s.value * 10}%` }}
                         transition={{ duration: 1, delay: 0.2 + (i * 0.1) }}
-                        className='bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] h-full rounded-full relative'
+                        className='bg-gradient-to-r from-[#2563EB] to-[#60A5FA] h-full rounded-full relative'
                       >
                          <div className="absolute top-0 right-0 bottom-0 w-10 bg-white/20 blur-[2px]"></div>
                       </motion.div>
@@ -289,7 +289,7 @@ function Step3Report({ report }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className='bg-[#252833] border border-white/5 rounded-3xl shadow-2xl p-6 sm:p-8'>
+              className='bg-[#131C2F] border border-[#1E293B] rounded-3xl shadow-2xl p-6 sm:p-8'>
               
               <h3 className="text-base sm:text-lg font-semibold text-white mb-6">
                 Performance Trend
@@ -300,25 +300,25 @@ function Step3Report({ report }) {
                   <AreaChart data={questionScoreData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                     <defs>
                       <linearGradient id="colorScore" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#14B8A6" stopOpacity={0.4}/>
-                        <stop offset="95%" stopColor="#14B8A6" stopOpacity={0}/>
+                        <stop offset="5%" stopColor="#2563EB" stopOpacity={0.4}/>
+                        <stop offset="95%" stopColor="#2563EB" stopOpacity={0}/>
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
                     <XAxis dataKey="name" stroke="#64748B" tick={{fill: '#64748B', fontSize: 12}} tickLine={false} axisLine={false} />
                     <YAxis domain={[0, 10]} stroke="#64748B" tick={{fill: '#64748B', fontSize: 12}} tickLine={false} axisLine={false} />
                     <Tooltip 
-                      contentStyle={{ backgroundColor: '#1C1F26', borderColor: 'rgba(255,255,255,0.1)', borderRadius: '12px', color: '#fff' }}
-                      itemStyle={{ color: '#2DD4BF', fontWeight: 'bold' }}
+                      contentStyle={{ backgroundColor: '#0B0F19', borderColor: '#334155', borderRadius: '12px', color: '#fff' }}
+                      itemStyle={{ color: '#60A5FA', fontWeight: 'bold' }}
                     />
                     <Area
                       type="monotone"
                       dataKey="score"
-                      stroke="#2DD4BF"
+                      stroke="#60A5FA"
                       strokeWidth={4}
                       fillOpacity={1} 
                       fill="url(#colorScore)"
-                      activeDot={{ r: 6, fill: '#06B6D4', stroke: '#fff', strokeWidth: 2 }}
+                      activeDot={{ r: 6, fill: '#60A5FA', stroke: '#fff', strokeWidth: 2 }}
                     />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -330,7 +330,7 @@ function Step3Report({ report }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className='bg-[#252833] border border-white/5 rounded-3xl shadow-2xl p-6 sm:p-8'>
+              className='bg-[#131C2F] border border-[#1E293B] rounded-3xl shadow-2xl p-6 sm:p-8'>
               
               <h3 className="text-base sm:text-lg font-semibold text-white mb-6">
                 Question Breakdown
@@ -338,30 +338,30 @@ function Step3Report({ report }) {
               
               <div className='space-y-5'>
                 {questionWiseScore.map((q, i) => (
-                  <div key={i} className='bg-[#1C1F26] p-5 sm:p-6 rounded-2xl border border-white/5 transition-colors hover:border-white/10'>
+                  <div key={i} className='bg-[#0B0F19] p-5 sm:p-6 rounded-2xl border border-[#334155] transition-colors hover:border-[#60A5FA]/30'>
                     
                     <div className='flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-5'>
                       <div className='flex-1'>
                         <span className="text-xs font-bold tracking-widest text-[#64748B] uppercase mb-2 block">
                           Question {i + 1}
                         </span>
-                        <p className="font-medium text-[#E2E8F0] text-sm sm:text-base leading-relaxed">
+                        <p className="font-medium text-[#F8FAFC] text-sm sm:text-base leading-relaxed">
                           {q.question || "Question not available"}
                         </p>
                       </div>
 
-                      <div className='bg-[#14B8A6]/10 border border-[#14B8A6]/20 text-[#2DD4BF] px-4 py-1.5 rounded-full font-bold text-sm shadow-[0_0_10px_rgba(20,184,166,0.1)] whitespace-nowrap self-start'>
+                      <div className='bg-[#2563EB]/10 border border-[#2563EB]/30 text-[#60A5FA] px-4 py-1.5 rounded-full font-bold text-sm shadow-[0_0_10px_rgba(37,99,235,0.1)] whitespace-nowrap self-start'>
                         {q.score ?? 0} / 10
                       </div>
                     </div>
 
-                    <div className='bg-[#252833] border border-[#2DD4BF]/20 p-4 sm:p-5 rounded-xl relative overflow-hidden'>
-                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#14B8A6] to-[#06B6D4]"></div>
-                      <p className='text-xs text-[#2DD4BF] font-bold mb-2 uppercase tracking-wider flex items-center gap-2'>
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF] animate-pulse"></span>
+                    <div className='bg-[#131C2F] border border-[#60A5FA]/30 p-4 sm:p-5 rounded-xl relative overflow-hidden'>
+                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#2563EB] to-[#60A5FA]"></div>
+                      <p className='text-xs text-[#60A5FA] font-bold mb-2 uppercase tracking-wider flex items-center gap-2'>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] animate-pulse"></span>
                         AI Analysis & Feedback
                       </p>
-                      <p className='text-sm text-[#CBD5E1] leading-relaxed'>
+                      <p className='text-sm text-[#94A3B8] leading-relaxed'>
                         {q.feedback && q.feedback.trim() !== ""
                           ? q.feedback
                           : "No specific feedback generated for this response."}
