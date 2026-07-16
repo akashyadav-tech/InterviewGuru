@@ -28,7 +28,7 @@ function Home() {
   const navigate = useNavigate()
   
   return (
-    <div className="min-h-screen bg-[#1C1F26] text-[#E8EAF0] flex flex-col font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#0B0F19] text-[#F8FAFC] flex flex-col font-sans overflow-x-hidden">
       <Navbar />
 
       {/* ── HERO ── */}
@@ -37,7 +37,7 @@ function Home() {
 
           {/* Badge */}
           <div className="flex justify-center mb-8">
-            <div className="bg-[#14B8A6]/10 border border-[#14B8A6]/30 text-[#2DD4BF] text-xs sm:text-sm px-4 sm:px-6 py-2 rounded-full flex items-center gap-2 tracking-wide">
+            <div className="bg-[#2563EB]/10 border border-[#2563EB]/30 text-[#60A5FA] text-xs sm:text-sm px-4 sm:px-6 py-2 rounded-full flex items-center gap-2 tracking-wide">
               <HiSparkles size={16} />
               <span className="text-center">AI Powered Smart Interview Platform</span>
             </div>
@@ -46,15 +46,15 @@ function Home() {
           {/* Headline */}
           <div className="relative text-center mb-20 md:mb-28">
             {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(20,184,166,0.13)_0%,transparent_70%)] pointer-events-none z-0"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.08)_0%,transparent_70%)] pointer-events-none z-0"></div>
 
             <motion.h1
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, ease: 'easeOut' }}
-              className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-[3.8rem] font-bold leading-tight tracking-tight max-w-4xl mx-auto mb-6 text-[#F1F5F9]">
+              className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-[3.8rem] font-bold leading-tight tracking-tight max-w-4xl mx-auto mb-6 text-[#FFFFFF]">
               Practice Interviews with <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2DD4BF] via-[#06B6D4] to-[#818CF8]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] to-[#94A3B8]">
                 AI Intelligence
               </span>
             </motion.h1>
@@ -74,7 +74,7 @@ function Home() {
                 onClick={() => { if (!userData) { setShowAuth(true); return; } navigate("/interview") }}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="w-full sm:w-auto bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full text-sm md:text-base font-semibold shadow-[0_0_28px_rgba(20,184,166,0.35)] tracking-wide">
+                className="w-full sm:w-auto cursor-pointer bg-[#2563EB] hover:bg-[#1D4ED8] transition-colors text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full text-sm md:text-base font-semibold shadow-[0_0_20px_rgba(37,99,235,0.2)] tracking-wide">
                 Start Interview →
               </motion.button>
 
@@ -82,7 +82,7 @@ function Home() {
                 onClick={() => { if (!userData) { setShowAuth(true); return; } navigate("/history") }}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="w-full sm:w-auto bg-transparent text-[#CBD5E1] border border-[#94A3B8]/30 px-8 md:px-10 py-3.5 md:py-4 rounded-full text-sm md:text-base font-medium tracking-wide hover:bg-white/5 transition-colors">
+                className="w-full cursor-pointer sm:w-auto bg-transparent text-[#CBD5E1] border border-[#334155] px-8 md:px-10 py-3.5 md:py-4 rounded-full text-sm md:text-base font-medium tracking-wide hover:bg-[#1E293B] transition-colors">
                 View History
               </motion.button>
             </div>
@@ -94,7 +94,7 @@ function Home() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-[#2DD4BF] text-xs md:text-sm tracking-[0.14em] font-semibold uppercase mb-10 text-center">
+              className="text-[#60A5FA] text-xs md:text-sm tracking-[0.14em] font-semibold uppercase mb-10 text-center">
               How It Works
             </motion.p>
 
@@ -109,24 +109,24 @@ function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.12 }}
-                  whileHover={{ y: -6, boxShadow: '0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(20,184,166,0.3)' }}
-                  className="bg-[#252833] border border-white/5 rounded-2xl p-6 md:p-8 relative transition-all duration-300">
+                  whileHover={{ y: -6, boxShadow: '0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(51,65,85,0.5)' }}
+                  className="bg-[#131C2F] border border-[#1E293B] rounded-2xl p-6 md:p-8 relative transition-all duration-300">
                   
                   <div className="absolute top-4 right-6 text-4xl md:text-5xl font-extrabold text-white/5 select-none leading-none">
                     {item.step}
                   </div>
 
-                  <div className="bg-gradient-to-br from-[#14B8A6]/20 to-[#06B6D4]/10 border border-[#14B8A6]/20 text-[#2DD4BF] w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                  <div className="bg-[#1E293B] border border-[#334155] text-[#60A5FA] w-12 h-12 rounded-xl flex items-center justify-center mb-6">
                     {item.icon}
                   </div>
 
-                  <div className="text-[10px] md:text-xs text-[#2DD4BF] font-semibold tracking-widest mb-2 uppercase">
+                  <div className="text-[10px] md:text-xs text-[#60A5FA] font-semibold tracking-widest mb-2 uppercase">
                     STEP {item.step}
                   </div>
-                  <h3 className="text-base md:text-lg font-bold text-[#F1F5F9] mb-3 leading-snug">
+                  <h3 className="text-base md:text-lg font-bold text-[#FFFFFF] mb-3 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-[#64748B] leading-relaxed">
+                  <p className="text-sm text-[#94A3B8] leading-relaxed">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -141,11 +141,11 @@ function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center mb-12 md:mb-16">
-              <p className="text-[#2DD4BF] text-xs md:text-sm tracking-[0.14em] font-semibold uppercase mb-3">
+              <p className="text-[#60A5FA] text-xs md:text-sm tracking-[0.14em] font-semibold uppercase mb-3">
                 Capabilities
               </p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F1F5F9] tracking-tight">
-                Advanced AI <span className="text-[#2DD4BF]">Features</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFFFFF] tracking-tight">
+                Advanced AI <span className="text-[#60A5FA]">Features</span>
               </h2>
             </motion.div>
 
@@ -161,19 +161,19 @@ function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.08 }}
-                  whileHover={{ scale: 1.02, boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}
-                  className="bg-[#252833] border border-white/5 rounded-2xl overflow-hidden flex flex-col sm:flex-row items-center transition-all duration-300">
+                  whileHover={{ scale: 1.02, boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}
+                  className="bg-[#131C2F] border border-[#1E293B] rounded-2xl overflow-hidden flex flex-col sm:flex-row items-center transition-all duration-300">
                   
                   <div className="w-full sm:w-2/5 p-6 sm:p-0 flex justify-center shrink-0">
                     <img src={item.image} alt={item.title} className="w-48 sm:w-full h-auto object-contain max-h-[180px] sm:max-h-[220px]" />
                   </div>
                   
                   <div className="w-full sm:w-3/5 p-6 sm:p-8 sm:pl-4">
-                    <div className="bg-gradient-to-br from-[#14B8A6]/20 to-[#06B6D4]/10 border border-[#14B8A6]/20 text-[#2DD4BF] w-10 h-10 rounded-lg flex items-center justify-center mb-4">
+                    <div className="bg-[#1E293B] border border-[#334155] text-[#60A5FA] w-10 h-10 rounded-lg flex items-center justify-center mb-4">
                       {item.icon}
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold text-[#F1F5F9] mb-2">{item.title}</h3>
-                    <p className="text-sm text-[#64748B] leading-relaxed">{item.desc}</p>
+                    <h3 className="text-lg md:text-xl font-bold text-[#FFFFFF] mb-2">{item.title}</h3>
+                    <p className="text-sm text-[#94A3B8] leading-relaxed">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -187,28 +187,28 @@ function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center mb-12 md:mb-16">
-              <p className="text-[#2DD4BF] text-xs md:text-sm tracking-[0.14em] font-semibold uppercase mb-3">
+              <p className="text-[#60A5FA] text-xs md:text-sm tracking-[0.14em] font-semibold uppercase mb-3">
                 Modes
               </p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F1F5F9] tracking-tight">
-                Multiple Interview <span className="text-[#2DD4BF]">Modes</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFFFFF] tracking-tight">
+                Multiple Interview <span className="text-[#60A5FA]">Modes</span>
               </h2>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {[
-                { img: hrImg, title: 'HR Interview Mode', desc: 'Behavioral and communication-based evaluation for real-world readiness.', accent: 'bg-indigo-500/15', accentBorder: 'border-indigo-500/25', accentText: 'text-indigo-300', strip: 'bg-indigo-300' },
-                { img: techImg, title: 'Technical Mode', desc: 'Deep technical questioning tailored precisely to your selected role.', accent: 'bg-[#14B8A6]/15', accentBorder: 'border-[#14B8A6]/25', accentText: 'text-[#2DD4BF]', strip: 'bg-[#2DD4BF]' },
-                { img: confidenceImg, title: 'Confidence Detection', desc: 'Tone and voice analysis to surface insights about your delivery.', accent: 'bg-amber-500/10', accentBorder: 'border-amber-500/25', accentText: 'text-amber-300', strip: 'bg-amber-300' },
-                { img: creditImg, title: 'Credits System', desc: 'Unlock premium sessions with a straightforward credits model.', accent: 'bg-rose-500/10', accentBorder: 'border-rose-500/20', accentText: 'text-rose-400', strip: 'bg-rose-400' }
+                { img: hrImg, title: 'HR Interview Mode', desc: 'Behavioral and communication-based evaluation for real-world readiness.', accent: 'bg-[#1E293B]', accentBorder: 'border-[#334155]', accentText: 'text-[#94A3B8]', strip: 'bg-[#475569]' },
+                { img: techImg, title: 'Technical Mode', desc: 'Deep technical questioning tailored precisely to your selected role.', accent: 'bg-[#1E3A8A]/30', accentBorder: 'border-[#1E3A8A]/50', accentText: 'text-[#60A5FA]', strip: 'bg-[#3B82F6]' },
+                { img: confidenceImg, title: 'Confidence Detection', desc: 'Tone and voice analysis to surface insights about your delivery.', accent: 'bg-[#334155]/50', accentBorder: 'border-[#475569]', accentText: 'text-[#CBD5E1]', strip: 'bg-[#94A3B8]' },
+                { img: creditImg, title: 'Credits System', desc: 'Unlock premium sessions with a straightforward credits model.', accent: 'bg-[#0F172A]', accentBorder: 'border-[#1E293B]', accentText: 'text-[#64748B]', strip: 'bg-[#334155]' }
               ].map((mode, i) => (
                 <motion.div key={i}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.08 }}
-                  whileHover={{ y: -5, boxShadow: '0 20px 50px rgba(0,0,0,0.4)' }}
-                  className="bg-[#252833] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-center sm:justify-between gap-6 relative overflow-hidden transition-all duration-300">
+                  whileHover={{ y: -5, boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}
+                  className="bg-[#131C2F] border border-[#1E293B] rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-center sm:justify-between gap-6 relative overflow-hidden transition-all duration-300">
                   
                   {/* Colored accent strip */}
                   <div className={`absolute left-0 top-0 bottom-0 w-1 ${mode.strip} opacity-60 rounded-l-2xl`}></div>
@@ -217,11 +217,11 @@ function Home() {
                     <div className={`inline-flex ${mode.accent} border ${mode.accentBorder} ${mode.accentText} text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full mb-3 tracking-wider`}>
                       MODE {String(i + 1).padStart(2, '0')}
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold text-[#F1F5F9] mb-2">{mode.title}</h3>
-                    <p className="text-sm text-[#64748B] leading-relaxed sm:max-w-[260px]">{mode.desc}</p>
+                    <h3 className="text-lg md:text-xl font-bold text-[#FFFFFF] mb-2">{mode.title}</h3>
+                    <p className="text-sm text-[#94A3B8] leading-relaxed sm:max-w-[260px]">{mode.desc}</p>
                   </div>
 
-                  <div className={`${mode.accent} rounded-2xl p-4 shrink-0`}>
+                  <div className={`${mode.accent} rounded-2xl p-4 shrink-0 border ${mode.accentBorder}`}>
                     <img src={mode.img} alt={mode.title} className="w-20 h-20 md:w-24 md:h-24 object-contain block mx-auto" />
                   </div>
                 </motion.div>
