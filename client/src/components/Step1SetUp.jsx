@@ -65,34 +65,34 @@ function Step1SetUp({ onStart }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="min-h-screen flex items-center justify-center bg-[#1C1F26] p-4 sm:p-6 md:p-8 pt-20"
+            className="min-h-screen flex items-center justify-center bg-[#0B0F19] p-4 sm:p-6 md:p-8 pt-20"
         >
-            <div className="w-full max-w-5xl bg-[#252833] rounded-3xl border border-white/5 shadow-[0_24px_60px_rgba(0,0,0,0.4)] grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+            <div className="w-full max-w-5xl bg-[#131C2F] rounded-3xl border border-[#1E293B] shadow-[0_24px_60px_rgba(0,0,0,0.4)] grid grid-cols-1 md:grid-cols-2 overflow-hidden">
                 
                 {/* LEFT PANEL */}
                 <motion.div
                     initial={{ x: -40, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.7 }}
-                    className="bg-gradient-to-br from-[#14B8A6]/10 to-[#06B6D4]/5 border-b md:border-b-0 md:border-r border-white/5 p-8 sm:p-10 lg:p-12 flex flex-col justify-center"
+                    className="bg-gradient-to-br from-[#2563EB]/10 to-[#60A5FA]/5 border-b md:border-b-0 md:border-r border-[#1E293B] p-8 sm:p-10 lg:p-12 flex flex-col justify-center"
                 >
-                    <div className="inline-flex bg-[#14B8A6]/10 border border-[#14B8A6]/25 text-[#2DD4BF] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase w-fit">
+                    <div className="inline-flex bg-[#2563EB]/10 border border-[#2563EB]/30 text-[#60A5FA] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase w-fit">
                         AI Powered
                     </div>
 
-                    <h2 className="text-3xl sm:text-4xl lg:text-[2.2rem] font-bold text-[#F1F5F9] mb-4 leading-tight tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl lg:text-[2.2rem] font-bold text-[#FFFFFF] mb-4 leading-tight tracking-tight">
                         Start Your AI Interview
                     </h2>
 
-                    <p className="text-[#64748B] text-sm sm:text-base leading-relaxed mb-10 max-w-sm">
+                    <p className="text-[#94A3B8] text-sm sm:text-base leading-relaxed mb-10 max-w-sm">
                         Practice real interview scenarios powered by AI. Improve communication, technical skills, and confidence.
                     </p>
 
                     <div className="flex flex-col gap-4">
                         {[
-                            { icon: <FaUserTie />, text: "Choose Role & Experience", color: "text-[#2DD4BF]", bg: "bg-[#14B8A6]/10", border: "border-[#14B8A6]/20" },
-                            { icon: <FaMicrophoneAlt />, text: "Smart Voice Interview", color: "text-indigo-300", bg: "bg-indigo-500/10", border: "border-indigo-500/20" },
-                            { icon: <FaChartLine />, text: "Performance Analytics", color: "text-amber-300", bg: "bg-amber-500/10", border: "border-amber-500/20" },
+                            { icon: <FaUserTie />, text: "Choose Role & Experience", color: "text-[#60A5FA]", bg: "bg-[#1E3A8A]/30", border: "border-[#1E3A8A]/50" },
+                            { icon: <FaMicrophoneAlt />, text: "Smart Voice Interview", color: "text-[#94A3B8]", bg: "bg-[#1E293B]", border: "border-[#334155]" },
+                            { icon: <FaChartLine />, text: "Performance Analytics", color: "text-[#CBD5E1]", bg: "bg-[#334155]/50", border: "border-[#475569]" },
                         ].map((item, i) => (
                             <motion.div
                                 key={i}
@@ -100,7 +100,7 @@ function Step1SetUp({ onStart }) {
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.3 + i * 0.15 }}
                                 whileHover={{ scale: 1.02, x: 4 }}
-                                className="flex items-center gap-4 bg-[#1C1F26] border border-white/5 p-3.5 sm:p-4 rounded-2xl cursor-pointer"
+                                className="flex items-center gap-4 bg-[#0B0F19] border border-[#1E293B] p-3.5 sm:p-4 rounded-2xl cursor-pointer"
                             >
                                 <div className={`${item.bg} border ${item.border} ${item.color} w-10 h-10 rounded-xl flex items-center justify-center shrink-0 text-base`}>
                                     {item.icon}
@@ -118,7 +118,7 @@ function Step1SetUp({ onStart }) {
                     transition={{ duration: 0.7 }}
                     className="p-8 sm:p-10 lg:p-12"
                 >
-                    <h2 className="text-2xl sm:text-[1.6rem] font-bold text-[#F1F5F9] mb-8 tracking-tight">
+                    <h2 className="text-2xl sm:text-[1.6rem] font-bold text-[#FFFFFF] mb-8 tracking-tight">
                         Interview Setup
                     </h2>
 
@@ -129,7 +129,7 @@ function Step1SetUp({ onStart }) {
                             <input
                                 type='text'
                                 placeholder='Enter role (e.g. Frontend Developer)'
-                                className="w-full pl-11 pr-4 py-3.5 bg-[#1C1F26] border border-white/5 rounded-xl text-[#F1F5F9] text-sm outline-none focus:border-[#2DD4BF]/50 transition-colors"
+                                className="w-full pl-11 pr-4 py-3.5 bg-[#0B0F19] border border-[#334155] rounded-xl text-[#F8FAFC] text-sm outline-none focus:border-[#60A5FA]/50 transition-colors"
                                 onChange={(e) => setRole(e.target.value)}
                                 value={role}
                             />
@@ -141,7 +141,7 @@ function Step1SetUp({ onStart }) {
                             <input
                                 type='text'
                                 placeholder='Experience (e.g. 2 years)'
-                                className="w-full pl-11 pr-4 py-3.5 bg-[#1C1F26] border border-white/5 rounded-xl text-[#F1F5F9] text-sm outline-none focus:border-[#2DD4BF]/50 transition-colors"
+                                className="w-full pl-11 pr-4 py-3.5 bg-[#0B0F19] border border-[#334155] rounded-xl text-[#F8FAFC] text-sm outline-none focus:border-[#60A5FA]/50 transition-colors"
                                 onChange={(e) => setExperience(e.target.value)}
                                 value={experience}
                             />
@@ -151,7 +151,7 @@ function Step1SetUp({ onStart }) {
                         <select
                             onChange={(e) => setMode(e.target.value)}
                             value={mode}
-                            className="w-full px-4 py-3.5 bg-[#1C1F26] border border-white/5 rounded-xl text-[#F1F5F9] text-sm outline-none focus:border-[#2DD4BF]/50 transition-colors cursor-pointer appearance-none"
+                            className="w-full px-4 py-3.5 bg-[#0B0F19] border border-[#334155] rounded-xl text-[#F8FAFC] text-sm outline-none focus:border-[#60A5FA]/50 transition-colors cursor-pointer appearance-none"
                         >
                             <option value="Technical">Technical Interview</option>
                             <option value="HR">HR Interview</option>
@@ -162,9 +162,9 @@ function Step1SetUp({ onStart }) {
                             <motion.div
                                 whileHover={{ scale: 1.01 }}
                                 onClick={() => document.getElementById("resumeUpload").click()}
-                                className="border-2 border-dashed border-[#14B8A6]/30 bg-[#14B8A6]/5 rounded-2xl p-6 sm:p-8 text-center cursor-pointer hover:border-[#14B8A6]/50 transition-colors"
+                                className="border-2 border-dashed border-[#2563EB]/30 bg-[#2563EB]/5 rounded-2xl p-6 sm:p-8 text-center cursor-pointer hover:border-[#2563EB]/50 transition-colors"
                             >
-                                <FaFileUpload className="text-3xl text-[#2DD4BF] mx-auto mb-3" />
+                                <FaFileUpload className="text-3xl text-[#60A5FA] mx-auto mb-3" />
                                 <input
                                     type="file"
                                     accept="application/pdf"
@@ -180,7 +180,7 @@ function Step1SetUp({ onStart }) {
                                     <motion.button
                                         whileHover={{ scale: 1.03 }}
                                         onClick={(e) => { e.stopPropagation(); handleUploadResume(); }}
-                                        className="mt-4 bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white border-none py-2 px-6 rounded-full text-sm font-semibold shadow-[0_0_15px_rgba(20,184,166,0.3)] cursor-pointer"
+                                        className="mt-4 bg-[#2563EB] hover:bg-[#1D4ED8] text-white border-none py-2 px-6 rounded-full text-sm font-semibold shadow-[0_0_15px_rgba(37,99,235,0.3)] cursor-pointer transition-colors"
                                     >
                                         {analyzing ? "Analyzing..." : "Analyze Resume"}
                                     </motion.button>
@@ -193,9 +193,9 @@ function Step1SetUp({ onStart }) {
                             <motion.div
                                 initial={{ opacity: 0, y: 16 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="bg-[#1C1F26] border border-[#14B8A6]/20 rounded-xl p-5 flex flex-col gap-4"
+                                className="bg-[#0B0F19] border border-[#2563EB]/30 rounded-xl p-5 flex flex-col gap-4"
                             >
-                                <h3 className="text-sm font-semibold text-[#2DD4BF]">
+                                <h3 className="text-sm font-semibold text-[#60A5FA]">
                                     Resume Analysis Result
                                 </h3>
 
@@ -213,7 +213,7 @@ function Step1SetUp({ onStart }) {
                                         <p className="text-[11px] text-[#64748B] font-bold mb-2 uppercase tracking-widest">Skills</p>
                                         <div className="flex flex-wrap gap-2">
                                             {skills.map((s, i) => (
-                                                <span key={i} className="bg-[#14B8A6]/10 border border-[#14B8A6]/20 text-[#2DD4BF] px-3 py-1 rounded-full text-xs font-medium">
+                                                <span key={i} className="bg-[#2563EB]/10 border border-[#2563EB]/30 text-[#60A5FA] px-3 py-1 rounded-full text-xs font-medium">
                                                     {s}
                                                 </span>
                                             ))}
@@ -231,8 +231,8 @@ function Step1SetUp({ onStart }) {
                             whileTap={{ scale: 0.98 }}
                             className={`w-full py-3.5 mt-2 rounded-full text-base font-semibold tracking-wide transition-all ${
                                 (!role || !experience || loading)
-                                    ? 'bg-white/5 text-[#475569] cursor-not-allowed'
-                                    : 'bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] text-white shadow-[0_0_24px_rgba(20,184,166,0.3)] cursor-pointer hover:opacity-90'
+                                    ? 'bg-[#1E293B] text-[#475569] cursor-not-allowed'
+                                    : 'bg-[#2563EB] hover:bg-[#1D4ED8] text-white shadow-[0_0_20px_rgba(37,99,235,0.2)] cursor-pointer'
                             }`}
                         >
                             {loading ? "Starting..." : "Start Interview →"}
