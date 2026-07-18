@@ -23,17 +23,17 @@ function InterviewPage() {
     }
     
     return (
-        <div className="min-h-screen bg-[#0B0F19] text-[#F8FAFC] relative font-sans overflow-x-hidden">
+        <div className="min-h-screen bg-[#FCFCFA] text-[#14171F] relative font-sans overflow-x-hidden">
             
             {/* Back Button */}
             {step !== 3 && (
                 <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-50">
                     <button
                         onClick={handleBack}
-                        className="flex items-center gap-2 sm:gap-3 p-3 sm:px-4 sm:py-2.5 rounded-full bg-[#131C2F] border border-[#334155] shadow-lg hover:border-[#60A5FA]/50 hover:bg-[#1E293B] transition-all group cursor-pointer"
+                        className="flex items-center gap-2 sm:gap-3 p-3 sm:px-4 sm:py-2.5 rounded-md bg-white border border-[#E7E5E1] shadow-sm hover:border-[#CFE3DF] hover:bg-[#F5F5F3] transition-all group cursor-pointer"
                     >
-                        <FaArrowLeft className="text-[#60A5FA] text-sm sm:text-base group-hover:text-[#93C5FD] transition-colors" />
-                        <span className="text-[#94A3B8] text-sm font-medium hidden sm:block group-hover:text-[#F8FAFC] transition-colors">
+                        <FaArrowLeft className="text-[#0F6B5C] text-sm sm:text-base transition-colors" />
+                        <span className="text-[#5B6169] text-sm font-medium hidden sm:block group-hover:text-[#14171F] transition-colors">
                             {step === 1 ? "Back to Home" : "Exit Interview"}
                         </span>
                     </button>
