@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaArrowLeft, FaCheckCircle } from 'react-icons/fa'
-import { motion } from "framer-motion" // Standard framer-motion import
+import { motion } from "framer-motion"
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 import { ServerUrl } from '../App'
@@ -70,7 +70,6 @@ function Pricing() {
         credits: plan.credits,
       }, { withCredentials: true })
 
-
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: result.data.amount,
@@ -88,7 +87,7 @@ function Pricing() {
           navigate("/")
         },
         theme: {
-          color: "#2563EB" // Match page Blue theme
+          color: "#0F6B5C" // Updated to match green theme
         },
 
       }
@@ -105,23 +104,23 @@ function Pricing() {
 
 
   return (
-    // DARK MODE BACKGROUND
-    <div className='min-h-screen bg-[#0B0F19] text-[#E2E8F0] py-10 sm:py-16 px-4 sm:px-6 font-sans'>
+    // LIGHT THEME BACKGROUND
+    <div className='min-h-screen bg-[#FCFCFA] text-[#14171F] py-10 sm:py-16 px-4 sm:px-6 font-sans'>
       
-      {/* HEADER SECTION - FIXED FOR MOBILE & CONSISTENT WITH HISTORY PAGE */}
+      {/* HEADER SECTION */}
       <div className='max-w-6xl mx-auto mb-12 sm:mb-16 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6'>
         
         <button 
           onClick={() => navigate("/")} 
-          className='p-3.5 cursor-pointer rounded-full bg-[#131C2F] border border-[#1E293B] shadow-lg hover:border-[#60A5FA]/50 transition-all shrink-0'>
-          <FaArrowLeft className='text-[#60A5FA]' />
+          className='p-3.5 cursor-pointer rounded-md bg-white border border-[#E7E5E1] shadow-sm hover:border-[#CFE3DF] hover:bg-[#F5F5F3] transition-all shrink-0'>
+          <FaArrowLeft className='text-[#0F6B5C]' />
         </button>
 
         <div>
-          <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-            Choose Your <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#60A5FA]'>Plan</span>
+          <h1 className="text-3xl md:text-5xl font-medium tracking-tight text-[#14171F]" style={{ fontFamily: "'Fraunces', serif" }}>
+            Choose Your <span className='text-[#0F6B5C]'>Plan</span>
           </h1>
-          <p className="text-[#94A3B8] mt-2 sm:mt-3 text-sm sm:text-lg">
+          <p className="text-[#5B6169] mt-2 sm:mt-3 text-sm sm:text-lg">
             Flexible pricing to match your interview preparation goals.
           </p>
         </div>
@@ -138,10 +137,10 @@ function Pricing() {
             <motion.div key={plan.id}
               whileHover={!plan.default && { y: -8 }}
               onClick={() => !plan.default && setSelectedPlan(plan.id)}
-              className={`relative rounded-3xl p-6 sm:p-8 transition-all duration-300 border bg-[#131C2F]
+              className={`relative rounded-lg p-6 sm:p-8 transition-all duration-300 border bg-white
                 ${isSelected
-                  ? "border-[#60A5FA] shadow-[0_0_30px_rgba(96,165,250,0.15)] scale-[1.02] md:scale-105 z-10"
-                  : "border-[#1E293B] hover:border-[#60A5FA]/40 shadow-lg"
+                  ? "border-[#0F6B5C] shadow-[0_20px_40px_rgba(0,0,0,0.08)] scale-[1.02] md:scale-105 z-10"
+                  : "border-[#E7E5E1] hover:border-[#D6D3CE] shadow-sm hover:shadow-md"
                 }
                 ${plan.default ? "cursor-default opacity-90" : "cursor-pointer"}
               `}
@@ -149,37 +148,37 @@ function Pricing() {
 
               {/* Best Value Badge */}
               {plan.badge && (
-                <div className="absolute top-0 right-6 sm:right-8 -translate-y-1/2 bg-gradient-to-r from-[#2563EB] to-[#60A5FA] text-white text-[10px] sm:text-xs px-4 py-1.5 rounded-full shadow-lg font-bold tracking-wider uppercase">
+                <div className="absolute top-0 right-6 sm:right-8 -translate-y-1/2 bg-[#0F6B5C] text-white text-[10px] sm:text-xs px-3 py-1.5 rounded-md shadow-sm font-semibold tracking-wider uppercase" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
                   {plan.badge}
                 </div>
               )}
 
               {/* Default Tag */}
               {plan.default && (
-                <div className="absolute top-5 sm:top-6 right-5 sm:right-6 bg-[#0B0F19] border border-[#1E293B] text-[#94A3B8] text-[10px] sm:text-xs px-3 py-1.5 rounded-full font-semibold uppercase tracking-wider">
+                <div className="absolute top-5 sm:top-6 right-5 sm:right-6 bg-[#F5F5F3] border border-[#E7E5E1] text-[#57534E] text-[10px] sm:text-xs px-3 py-1.5 rounded-md font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
                   Current Plan
                 </div>
               )}
 
               {/* Plan Name */}
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-xl font-medium text-[#14171F] mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
                 {plan.name}
               </h3>
 
               {/* Price */}
               <div className="mt-4 mb-6">
-                <span className="text-4xl font-extrabold text-[#60A5FA] drop-shadow-[0_0_10px_rgba(96,165,250,0.2)]">
+                <span className="text-4xl font-semibold text-[#14171F]">
                   {plan.price}
                 </span>
-                <p className="text-[#94A3B8] mt-1 text-sm font-medium tracking-wide">
+                <p className="text-[#5B6169] mt-1 text-sm font-medium tracking-wide">
                   {plan.credits} Credits
                 </p>
               </div>
 
-              <div className="h-px w-full bg-[#1E293B] my-6"></div>
+              <div className="h-px w-full bg-[#E7E5E1] my-6"></div>
 
               {/* Description */}
-              <p className="text-[#CBD5E1] text-sm leading-relaxed min-h-[40px]">
+              <p className="text-[#5B6169] text-sm leading-relaxed min-h-[40px]">
                 {plan.description}
               </p>
 
@@ -187,8 +186,8 @@ function Pricing() {
               <div className="mt-8 space-y-4 text-left">
                 {plan.features.map((feature, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <FaCheckCircle className="text-[#60A5FA] text-lg mt-0.5 shrink-0" />
-                    <span className="text-[#E2E8F0] text-sm font-medium">
+                    <FaCheckCircle className="text-[#0F6B5C] text-lg mt-0.5 shrink-0" />
+                    <span className="text-[#57534E] text-sm font-medium">
                       {feature}
                     </span>
                   </div>
@@ -208,10 +207,10 @@ function Pricing() {
                       handlePayment(plan)
                     }
                   }}
-                  className={`w-full mt-10 py-3.5 cursor-pointer rounded-xl font-bold transition-all duration-300 ${
+                  className={`w-full mt-10 py-3.5 cursor-pointer rounded-lg font-semibold tracking-wide transition-all duration-300 ${
                     isSelected
-                      ? "bg-gradient-to-r from-[#2563EB] to-[#60A5FA] text-white shadow-[0_0_20px_rgba(37,99,235,0.25)] hover:opacity-90"
-                      : "bg-[#0B0F19] border border-[#1E293B] text-white hover:border-[#60A5FA]/50"
+                      ? "bg-[#0F6B5C] hover:bg-[#0B5347] text-white"
+                      : "bg-white border border-[#E2E0DC] text-[#14171F] hover:bg-[#F5F5F3]"
                   }`}>
                   {loadingPlan === plan.id
                     ? "Processing..."
