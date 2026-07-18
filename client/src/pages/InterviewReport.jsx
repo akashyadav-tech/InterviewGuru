@@ -7,15 +7,14 @@ import Step3Report from '../components/Step3Report'
 import { useEffect } from 'react'
 
 function InterviewReport() {
-  const {id}=useParams()
-  const [report,setReport] =useState(null)
+  const { id } = useParams()
+  const [report, setReport] = useState(null)
 
   useEffect(() => {
     const fetchReport = async () => {
         try {
             const result = await axios.get(ServerUrl + "/api/interview/report/" + id, { withCredentials: true })
 
-            console.log(result.data)
             setReport(result.data)
         } catch (error) {
             console.log(error)
@@ -23,19 +22,20 @@ function InterviewReport() {
     }
 
     fetchReport()
-},[])
+  }, [])
 
-if (!report) {
+  if (!report) {
     return (
-        <div className="min-h-screen bg-[#0B0F19] flex items-center justify-center font-sans">
-            <p className="text-[#60A5FA] animate-pulse text-lg tracking-widest uppercase font-semibold">
+        <div className="min-h-screen bg-[#FCFCFA] flex items-center justify-center font-sans">
+            <p className="text-[#0F6B5C] animate-pulse text-lg tracking-widest uppercase font-bold">
                 Loading Report...
             </p>
         </div>
     );
-}
+  }
+  
   return (
-    <Step3Report report={report}/>
+    <Step3Report report={report} />
   )
 }
 
